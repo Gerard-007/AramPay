@@ -22,7 +22,7 @@ class ProjectLogo extends StatelessWidget {
           width: 1,
         ),
         Container(
-          padding: EdgeInsets.all(5),
+          padding: EdgeInsets.fromLTRB(5.0, 2.0, 5.0, 2.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             color: Colors.orange,
