@@ -77,26 +77,31 @@ class WelcomeScreen extends StatelessWidget {
               margin: EdgeInsets.only(top: 400.0),
               padding: EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                Colors.black38,
-                Colors.blueGrey.withOpacity(0)
-              ])),
+                gradient: LinearGradient(
+                  colors: [Colors.black38, Colors.blueGrey.withOpacity(0)],
+                ),
+              ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(children: [
-                      TextSpan(
-                          text: "AramPay\n",
-                          style: Theme.of(context).textTheme.display1),
-                      TextSpan(
-                        text:
-                            "\nSpecial military/paramilitary instance \nintervention support loan",
-                        style: Theme.of(context).textTheme.headline,
-                      ),
-                    ]),
+                  WhiteProjectLogo(),
+                  Text(
+                    "Special military/paramilitary instance \nintervention support loan.",
+                    style: Theme.of(context).textTheme.headline,
                   ),
+                  // RichText(
+                  //   textAlign: TextAlign.center,
+                  //   text: TextSpan(children: [
+                  //     // TextSpan(
+                  //     //     text: "AramPay\n",
+                  //     //     style: Theme.of(context).textTheme.display1),
+                  //     TextSpan(
+                  //       text:
+                  //           "Special military/paramilitary instance \nintervention support loan",
+                  //       style: Theme.of(context).textTheme.headline,
+                  //     ),
+                  //   ]),
+                  // ),
                   FittedBox(
                     child: GestureDetector(
                       onTap: () {

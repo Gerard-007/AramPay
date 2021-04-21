@@ -70,7 +70,7 @@ class _signinScreenState extends State<signinScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    ProjectLogo(),
+                    BlackProjectLogo(),
                   ],
                 ),
               ),
