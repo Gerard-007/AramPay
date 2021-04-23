@@ -2,6 +2,7 @@ import 'package:arampay/api/apiService.dart';
 import 'package:arampay/common/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:arampay/screens/mainHomepage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../common/ProgressHUD.dart';
@@ -125,9 +126,9 @@ class _signinScreenState extends State<signinScreen> {
                             ),
                           ),
                         ),
-                        // SizedBox(
-                        //   height: 20.0,
-                        // ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
                         TextFormField(
                           keyboardType: TextInputType.visiblePassword,
                           onSaved: (input) =>
@@ -178,7 +179,7 @@ class _signinScreenState extends State<signinScreen> {
                           ),
                         ),
                         SizedBox(
-                          height: 15.0,
+                          height: 20.0,
                         ),
                         Container(
                           child: GestureDetector(
@@ -186,6 +187,11 @@ class _signinScreenState extends State<signinScreen> {
                               if (validateAndSave()) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(content: Text('Processing Data')));
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return MainHomePage();
+                                  },
+                                ));
                                 //scaffoldKey.currentState.showSnackBar(snackBar);
                               }
                             },
@@ -256,78 +262,7 @@ class _signinScreenState extends State<signinScreen> {
           ),
           Expanded(
             flex: 1,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left: 6, right: 6),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: kPrimaryColor.withOpacity(.8),
-                        ),
-                      ),
-                      child: new Icon(
-                        MdiIcons.facebook,
-                        color: kPrimaryColor.withOpacity(.8),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left: 6, right: 6),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: kPrimaryColor.withOpacity(.8),
-                        ),
-                      ),
-                      child: new Icon(
-                        MdiIcons.google,
-                        color: kPrimaryColor.withOpacity(.8),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left: 6, right: 6),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: kPrimaryColor.withOpacity(.8),
-                        ),
-                      ),
-                      child: new Icon(
-                        MdiIcons.twitter,
-                        color: kPrimaryColor.withOpacity(.8),
-                      ),
-                    ),
-                  ],
-                ),
-                // SizedBox(
-                //   height: 3,
-                // ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Powered by Paycacura System Inc.",
-                        style: TextStyle(fontFamily: "avenir", fontSize: 12),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+            child: SocialLinks(),
           ),
         ],
       ),

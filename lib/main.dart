@@ -1,9 +1,11 @@
 import 'package:arampay/common/constants.dart';
+import 'package:arampay/screens/mainHomepage.dart';
 import 'package:arampay/screens/signInScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
+  //runApp(MainHomePage());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,6 +18,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: kBackgroundColor,
         brightness: Brightness.light,
+        fontFamily: "avenir",
         textTheme: TextTheme(
           display1: TextStyle(
             color: Colors.white,
@@ -82,26 +85,23 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   WhiteProjectLogo(),
-                  Text(
-                    "Special military/paramilitary instance \nintervention support loan.",
-                    style: Theme.of(context).textTheme.headline,
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(children: [
+                      TextSpan(
+                        text:
+                            "Special military/paramilitary \ninstance intervention support loan",
+                        style: Theme.of(context).textTheme.headline,
+                      ),
+                      TextSpan(
+                        text: "\n\nGet access to \ninstant Loan, Now!",
+                        style: Theme.of(context).textTheme.headline,
+                      ),
+                    ]),
                   ),
-                  // RichText(
-                  //   textAlign: TextAlign.center,
-                  //   text: TextSpan(children: [
-                  //     // TextSpan(
-                  //     //     text: "AramPay\n",
-                  //     //     style: Theme.of(context).textTheme.display1),
-                  //     TextSpan(
-                  //       text:
-                  //           "Special military/paramilitary instance \nintervention support loan",
-                  //       style: Theme.of(context).textTheme.headline,
-                  //     ),
-                  //   ]),
-                  // ),
                   FittedBox(
                     child: GestureDetector(
                       onTap: () {
