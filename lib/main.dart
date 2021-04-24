@@ -77,7 +77,7 @@ class WelcomeScreen extends StatelessWidget {
             alignment: Alignment.center,
             child: Container(
               width: 490.0,
-              margin: EdgeInsets.only(top: 400.0),
+              margin: EdgeInsets.only(top: 350.0),
               padding: EdgeInsets.all(16.0),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -87,13 +87,14 @@ class WelcomeScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
+                  //============== logo ===============
                   WhiteProjectLogo(),
+                  //============== Text writeups here ================
                   RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(children: [
                       TextSpan(
-                        text:
-                            "Special military/paramilitary \ninstance intervention support loan",
+                        text: "Special military intervention support loan",
                         style: Theme.of(context).textTheme.headline,
                       ),
                       TextSpan(
@@ -102,6 +103,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ]),
                   ),
+                  //=================== Get started Button here===============
                   FittedBox(
                     child: GestureDetector(
                       onTap: () {
@@ -140,6 +142,8 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  //=================Social media links here==============
+                  SocialLinks(),
                 ],
               ),
             ),

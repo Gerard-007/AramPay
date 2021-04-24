@@ -1,6 +1,10 @@
 import 'package:arampay/common/constants.dart';
+import 'package:arampay/screens/profile.dart';
+import 'package:arampay/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
+import 'home.dart';
 
 class MainHomePage extends StatelessWidget {
   // SystemChrome.setEnabledSystemUIOverlays([]),
@@ -9,7 +13,11 @@ class MainHomePage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: mainHomepage(),
-      routes: {},
+      // routes: {
+      //   '/homePageScreen': (context) => HomePage(),
+      //   '/profilePageScreen': (context) => ProfilePage(),
+      //   '/settingsPageScreen': (context) => SettingsPage(),
+      // },
     );
   }
 }
@@ -32,10 +40,14 @@ class _mainHomepageState extends State<mainHomepage> {
   int selectedMenuItem = 0;
 
   String pageTitle = "Homepage";
+  String currentPage = "homePageScreen";
+  // HomePage homePageScreen = new HomePage();
+  // ProfilePage profilePageScreen = new ProfilePage();
+  // SettingsPage settingsPageScreen = new SettingsPage();
 
   void setSidebarState() {
     setState(() {
-      xOffset = sidebarOpen ? 265 : 60;
+      xOffset = sidebarOpen ? 200 : 0;
       yOffset = sidebarOpen ? 70 : 0;
       pageScale = sidebarOpen ? 0.8 : 1;
     });
@@ -71,6 +83,9 @@ class _mainHomepageState extends State<mainHomepage> {
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     //Search Container was here...
+                    SizedBox(
+                      height: 47,
+                    ),
                     Container(
                       child: Expanded(
                         child: new ListView.builder(
@@ -104,7 +119,7 @@ class _mainHomepageState extends State<mainHomepage> {
                 ),
               ),
               AnimatedContainer(
-                curve: Curves.easeInOut,
+                //curve: Curves.easeInOut,
                 duration: Duration(milliseconds: 200),
                 transform: Matrix4.translationValues(xOffset, yOffset, 1.0)
                   ..scale(pageScale),
@@ -118,7 +133,7 @@ class _mainHomepageState extends State<mainHomepage> {
                 child: Column(
                   children: <Widget>[
                     Container(
-                      margin: EdgeInsets.only(top: 24),
+                      margin: EdgeInsets.only(top: 20),
                       height: 60,
                       child: Row(
                         children: <Widget>[
@@ -147,7 +162,12 @@ class _mainHomepageState extends State<mainHomepage> {
                           ),
                         ],
                       ),
-                    )
+                    ),
+                    PageNavigation(
+                      //add somthing here...
+                      currentPage: currentPage,
+                      selectedPage: selectedMenuItem,
+                    ),
                   ],
                 ),
               ),
@@ -174,7 +194,7 @@ class MenuItem extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(10),
             child: new Icon(
               MdiIcons.fromString(
                 itemIcon,
@@ -194,5 +214,28 @@ class MenuItem extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class PageNavigation extends StatelessWidget {
+  String currentPage = "homePageScreen";
+  int selectedPage = 0;
+
+  PageNavigation({this.currentPage, this.selectedPage});
+
+  @override
+  Widget build(BuildContext context) {
+    switch (selectedPage) {
+      case 0:
+        return HomePage();
+        break;
+      case 1:
+        return ProfilePage();
+        break;
+      case 2:
+        return SettingsPage();
+        break;
+      default:
+    }
   }
 }
