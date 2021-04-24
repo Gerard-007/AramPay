@@ -84,7 +84,7 @@ class _mainHomepageState extends State<mainHomepage> {
                   children: <Widget>[
                     //Search Container was here...
                     SizedBox(
-                      height: 47,
+                      height: 40,
                     ),
                     Container(
                       child: Expanded(
@@ -126,10 +126,11 @@ class _mainHomepageState extends State<mainHomepage> {
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: sidebarOpen
-                        ? BorderRadius.circular(20)
-                        : BorderRadius.circular(0)),
+                  color: Colors.white,
+                  borderRadius: sidebarOpen
+                      ? BorderRadius.circular(20)
+                      : BorderRadius.circular(0),
+                ),
                 child: Column(
                   children: <Widget>[
                     Container(
