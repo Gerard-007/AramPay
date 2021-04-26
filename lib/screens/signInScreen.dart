@@ -2,7 +2,7 @@ import 'package:arampay/api/apiService.dart';
 import 'package:arampay/common/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:arampay/screens/mainHomepage.dart';
+import 'package:arampay/screens/sideBarHomePage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../common/ProgressHUD.dart';
@@ -260,6 +260,8 @@ class _signinScreenState extends State<signinScreen> {
               ),
             ),
           ),
+
+          //====================Social link Here =========================
           Expanded(
             flex: 1,
             child: SocialLinks(),

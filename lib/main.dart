@@ -1,11 +1,11 @@
 import 'package:arampay/common/constants.dart';
-import 'package:arampay/screens/mainHomepage.dart';
+import 'package:arampay/screens/loanBalance.dart';
 import 'package:arampay/screens/signInScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
-  //runApp(MainHomePage());
+  //runApp(MyApp());
+  runApp(LoanBalacePage());
 }
 
 class MyApp extends StatelessWidget {
@@ -53,15 +53,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//=================== Welcome screen Starts here==============
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/1000w_q95.jpg"),
-                fit: BoxFit.fitHeight)),
+          image: DecorationImage(
+              image: AssetImage("assets/1000w_q95.jpg"), fit: BoxFit.fitHeight),
+        ),
         child: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(

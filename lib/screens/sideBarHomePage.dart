@@ -34,7 +34,7 @@ class _mainHomepageState extends State<mainHomepage> {
   bool sidebarOpen = false;
 
   double yOffset = 0;
-  double xOffset = 60;
+  double xOffset = 0; //initially 60
   double pageScale = 1;
 
   int selectedMenuItem = 0;
