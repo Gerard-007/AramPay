@@ -5,7 +5,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 //const kBackgroundColor = Color(0xFF202020);
 const kBackgroundColor = Colors.orange;
 const kLayoutColor = Color(0xFF7CB342);
-const kPrimaryColor = Colors.orange;
+const kPrimaryColor = Color(0xFFFF6F00);
 
 //Project logo custom widget...
 class BlackProjectLogo extends StatelessWidget {
@@ -13,34 +13,20 @@ class BlackProjectLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        Text(
-          "Aram",
-          style: TextStyle(
-            fontSize: 25,
-            fontFamily: "avenir",
-            fontWeight: FontWeight.bold,
-            fontStyle: FontStyle.italic,
-          ),
+        Image(
+          fit: BoxFit.contain,
+          image: AssetImage("assets/icons/credital font.png"),
+          width: 70,
+          height: 100,
         ),
         SizedBox(
-          width: 1,
+          width: 10,
         ),
-        Container(
-          padding: EdgeInsets.fromLTRB(5.0, 2.0, 5.0, 2.0),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: Colors.orange,
-          ),
-          child: Text(
-            "Pay",
-            style: TextStyle(
-              fontSize: 25,
-              color: Colors.white,
-              fontStyle: FontStyle.italic,
-              fontFamily: "avenir",
-              fontWeight: FontWeight.w900,
-            ),
-          ),
+        Image(
+          fit: BoxFit.contain,
+          image: AssetImage("assets/icons/credital_logo.png"),
+          width: 50,
+          height: 50,
         )
       ],
     );
@@ -54,36 +40,12 @@ class WhiteProjectLogo extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(
-            "Aram",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 30,
-              fontFamily: "avenir",
-              fontWeight: FontWeight.bold,
-              fontStyle: FontStyle.italic,
-            ),
+          Image(
+            fit: BoxFit.contain,
+            image: AssetImage("assets/icons/credital logo2.png"),
+            width: 100,
+            height: 100,
           ),
-          SizedBox(
-            width: 1,
-          ),
-          Container(
-            padding: EdgeInsets.fromLTRB(5.0, 2.0, 5.0, 2.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.orange,
-            ),
-            child: Text(
-              "Pay",
-              style: TextStyle(
-                fontSize: 30,
-                color: Colors.white,
-                fontStyle: FontStyle.italic,
-                fontFamily: "avenir",
-                fontWeight: FontWeight.w900,
-              ),
-            ),
-          )
         ],
       ),
     );
@@ -155,7 +117,11 @@ class SocialLinks extends StatelessWidget {
             Container(
               child: Text(
                 "Powered by Paycacura System Inc.",
-                style: TextStyle(fontFamily: "avenir", fontSize: 10),
+                style: TextStyle(
+                  fontFamily: "avenir",
+                  fontSize: 10,
+                  color: kPrimaryColor,
+                ),
               ),
             ),
           ],

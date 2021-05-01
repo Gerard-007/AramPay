@@ -4,8 +4,8 @@ import 'package:arampay/screens/signInScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  //runApp(MyApp());
-  runApp(LoanBalacePage());
+  runApp(MyApp());
+  //runApp(LoanBalacePage());
 }
 
 class MyApp extends StatelessWidget {
@@ -67,7 +67,7 @@ class WelcomeScreen extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Colors.brown.withOpacity(0.2),
+                Colors.green.withOpacity(0.2),
                 Colors.black.withOpacity(0.6)
               ],
               stops: [0.0, 1],
@@ -95,11 +95,11 @@ class WelcomeScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     text: TextSpan(children: [
                       TextSpan(
-                        text: "Special military intervention support loan",
+                        text: "Credital\n\n",
                         style: Theme.of(context).textTheme.headline,
                       ),
                       TextSpan(
-                        text: "\n\nGet access to \ninstant Loan, Now!",
+                        text: "Special military intervention \nsupport loan\n",
                         style: Theme.of(context).textTheme.headline,
                       ),
                     ]),

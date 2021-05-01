@@ -1,6 +1,8 @@
 import 'package:arampay/common/constants.dart';
 import 'package:flutter/material.dart';
 
+import 'loanBalance.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -18,7 +20,11 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.all(5.0),
           child: GestureDetector(
             onTap: () {
-              //======== Routing goes here ========...
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return LoanBalacePage();
+                },
+              ));
             },
             child: Container(
               child: FittedBox(

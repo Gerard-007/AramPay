@@ -1,5 +1,9 @@
 import 'package:arampay/common/constants.dart';
+import 'package:arampay/screens/sideBarHomePage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'home.dart';
 
 class LoanBalacePage extends StatelessWidget {
   @override
@@ -38,7 +42,11 @@ class _LoanBalanceState extends State<LoanBalance> {
                       padding: const EdgeInsets.only(left: 30),
                       child: GestureDetector(
                         onTap: () {
-                          // Rout back to home menu...
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return MainHomePage();
+                            },
+                          ));
                         },
                         child: Icon(Icons.arrow_back_ios),
                       ),
@@ -88,7 +96,7 @@ class _LoanBalanceState extends State<LoanBalance> {
                 margin: EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.orange,
+                  color: kPrimaryColor,
                 ),
                 width: 300,
                 height: 100,
