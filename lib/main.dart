@@ -2,6 +2,7 @@ import 'package:arampay/common/constants.dart';
 import 'package:arampay/screens/loanBalance.dart';
 import 'package:arampay/screens/signInScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: kPrimaryColor,
-        scaffoldBackgroundColor: kBackgroundColor,
+        scaffoldBackgroundColor: kPrimaryColor,
         brightness: Brightness.light,
         fontFamily: "avenir",
         textTheme: TextTheme(
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
           headline: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.normal,
-            fontSize: 15,
+            fontSize: 12,
             fontFamily: 'avenir',
           ),
         ),
@@ -96,7 +97,12 @@ class WelcomeScreen extends StatelessWidget {
                     text: TextSpan(children: [
                       TextSpan(
                         text: "Credital\n\n",
-                        style: Theme.of(context).textTheme.headline,
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontFamily: "avenir",
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
                       ),
                       TextSpan(
                         text: "Special military intervention \nsupport loan\n",
@@ -144,7 +150,7 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ),
                   //=================Social media links here==============
-                  SocialLinks(),
+                  LightSocialLinks(),
                 ],
               ),
             ),

@@ -17,7 +17,8 @@ class _HomePageState extends State<HomePage> {
       children: [
         //===================== Instant Loan Box Here =================
         Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.only(
+              top: 40.0, left: 5.0, right: 5.0, bottom: 5.0),
           child: GestureDetector(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(
@@ -32,7 +33,7 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white,
                   elevation: 14.0,
                   borderRadius: BorderRadius.circular(15.0),
-                  shadowColor: kBackgroundColor,
+                  shadowColor: kPrimaryColor,
                   child: Row(
                     //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -44,14 +45,10 @@ class _HomePageState extends State<HomePage> {
                         margin: EdgeInsets.only(left: 20),
                         color: kLayoutColor,
                       ),
-                      SizedBox(
-                        width: 12,
-                        height: 100,
-                      ),
                       Container(
                         padding: EdgeInsets.symmetric(
                           horizontal: 10,
-                          vertical: 20,
+                          vertical: 30,
                         ),
                         child: RichText(
                           //mainAxisAlignment: MainAxisAlignment.start,
@@ -68,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                               TextSpan(
                                 text:
-                                    "Get your day going with our instant micro loan from\n N1000 - N50,000 and pay in 14days, with no stress",
+                                    "Get your day going with our instant micro loan from \nN50,000 - N1,000,000 and pay in 14days, with no stress",
                                 style: TextStyle(
                                     fontFamily: "avenir",
                                     fontSize: 11,
@@ -99,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white,
                   elevation: 14.0,
                   borderRadius: BorderRadius.circular(15.0),
-                  shadowColor: kBackgroundColor,
+                  shadowColor: kPrimaryColor,
                   child: Row(
                     //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -168,7 +165,7 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white,
                   elevation: 14.0,
                   borderRadius: BorderRadius.circular(15.0),
-                  shadowColor: kBackgroundColor,
+                  shadowColor: kPrimaryColor,
                   child: Row(
                     //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[

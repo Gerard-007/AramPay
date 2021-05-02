@@ -72,7 +72,7 @@ class _mainHomepageState extends State<mainHomepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: kBackgroundColor,
+        color: kPrimaryColor,
         child: Container(
           child: Stack(
             children: <Widget>[
@@ -191,7 +191,7 @@ class MenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: selected == position ? Color(0xFFB151E26) : kBackgroundColor,
+      color: selected == position ? Color(0xFFB151E26) : kPrimaryColor,
       child: Row(
         children: <Widget>[
           Container(
