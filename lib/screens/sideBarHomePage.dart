@@ -72,7 +72,10 @@ class _mainHomepageState extends State<mainHomepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: kPrimaryColor,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/123.jpg"), fit: BoxFit.fitHeight),
+        ),
         child: Container(
           child: Stack(
             children: <Widget>[
@@ -107,14 +110,14 @@ class _mainHomepageState extends State<mainHomepage> {
                         ),
                       ),
                     ),
-                    Container(
-                      child: MenuItem(
-                        itemIcon: "logout",
-                        itemText: "logout",
-                        selected: selectedMenuItem,
-                        position: menuItems.length + 1,
-                      ),
-                    ),
+                    // Container(
+                    //   child: MenuItem(
+                    //     itemIcon: "logout",
+                    //     itemText: "logout",
+                    //     selected: selectedMenuItem,
+                    //     position: menuItems.length + 1,
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -131,45 +134,47 @@ class _mainHomepageState extends State<mainHomepage> {
                       ? BorderRadius.circular(20)
                       : BorderRadius.circular(0),
                 ),
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.only(top: 20),
-                      height: 60,
-                      child: Row(
-                        children: <Widget>[
-                          GestureDetector(
-                            onTap: () {
-                              //Change Sidebar State
-                              sidebarOpen = !sidebarOpen;
-                              setSidebarState();
-                            },
-                            child: Container(
-                              color: Colors.white,
-                              padding: EdgeInsets.all(20),
-                              child: Icon(
-                                Icons.menu,
+                child: Container(
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.only(top: 20),
+                        height: 60,
+                        child: Row(
+                          children: <Widget>[
+                            GestureDetector(
+                              onTap: () {
+                                //Change Sidebar State
+                                sidebarOpen = !sidebarOpen;
+                                setSidebarState();
+                              },
+                              child: Container(
+                                color: Colors.white,
+                                padding: EdgeInsets.all(20),
+                                child: Icon(
+                                  Icons.menu,
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.only(top: 20, bottom: 20),
-                            child: Text(
-                              pageTitle,
-                              style: TextStyle(
-                                fontSize: 18,
+                            Container(
+                              padding: EdgeInsets.only(top: 20, bottom: 20),
+                              child: Text(
+                                pageTitle,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    PageNavigation(
-                      //add somthing here...
-                      currentPage: currentPage,
-                      selectedPage: selectedMenuItem,
-                    ),
-                  ],
+                      PageNavigation(
+                        //add somthing here...
+                        currentPage: currentPage,
+                        selectedPage: selectedMenuItem,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -191,7 +196,7 @@ class MenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: selected == position ? Color(0xFFB151E26) : kPrimaryColor,
+      color: selected == position ? Color(0xFFB151E26) : Colors.transparent,
       child: Row(
         children: <Widget>[
           Container(

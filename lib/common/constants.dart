@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 //const kBackgroundColor = Color(0xFF202020);
 //const kBackgroundColor = Colors.orange;
-const kLayoutColor = Color(0xFF7CB342);
-const kPrimaryColor = Color(0xFFFF6F00);
+const kLayoutColor = Color(0xFF01579B);
+const kPrimaryColor = Color(0xFF827717);
+const kButtonColor = Colors.orange;
 
 //Project logo custom widget...
 class BlackProjectLogo extends StatelessWidget {
@@ -15,18 +15,19 @@ class BlackProjectLogo extends StatelessWidget {
       children: <Widget>[
         Image(
           fit: BoxFit.contain,
-          image: AssetImage("assets/icons/credital font.png"),
-          width: 70,
-          height: 100,
+          image: AssetImage("assets/icons/credital_logo.png"),
+          width: 40,
+          height: 40,
         ),
         SizedBox(
-          width: 10,
+          width: 5,
         ),
-        Image(
-          fit: BoxFit.contain,
-          image: AssetImage("assets/icons/credital_logo.png"),
-          width: 50,
-          height: 50,
+        Text(
+          "Arampay",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+          ),
         )
       ],
     );
@@ -41,10 +42,26 @@ class WhiteProjectLogo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image(
-            fit: BoxFit.contain,
-            image: AssetImage("assets/icons/credital_logo.png"),
-            width: 100,
-            height: 100,
+            image: AssetImage("assets/main logo1.png"),
+            width: 70,
+            height: 80,
+          ),
+          SizedBox(
+            width: 5,
+          ),
+          // Image(
+          //   image: AssetImage("assets/name alone3.png"),
+          //   width: 170,
+          //   height: 70,
+          // ),
+          Text(
+            "Arampay",
+            style: TextStyle(
+              fontSize: 45,
+              color: Colors.white,
+              fontFamily: "avenir",
+              fontWeight: FontWeight.w900,
+            ),
           ),
         ],
       ),
@@ -52,6 +69,7 @@ class WhiteProjectLogo extends StatelessWidget {
   }
 }
 
+//
 class SocialLinks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -119,7 +137,7 @@ class SocialLinks extends StatelessWidget {
                 "Powered by Paycacura System Inc.",
                 style: TextStyle(
                   fontFamily: "avenir",
-                  fontSize: 10,
+                  fontSize: 15,
                   color: kPrimaryColor,
                 ),
               ),
@@ -151,10 +169,11 @@ class LightSocialLinks extends StatelessWidget {
               child: new Icon(
                 MdiIcons.facebook,
                 color: Colors.white,
+                size: 25,
               ),
             ),
             SizedBox(
-              width: 15,
+              width: 10,
             ),
             Container(
               padding: EdgeInsets.only(left: 6, right: 6),
@@ -165,12 +184,13 @@ class LightSocialLinks extends StatelessWidget {
                 ),
               ),
               child: new Icon(
-                MdiIcons.google,
+                MdiIcons.instagram,
                 color: Colors.white,
+                size: 25,
               ),
             ),
             SizedBox(
-              width: 15,
+              width: 10,
             ),
             Container(
               padding: EdgeInsets.only(left: 6, right: 6),
@@ -183,12 +203,13 @@ class LightSocialLinks extends StatelessWidget {
               child: new Icon(
                 MdiIcons.twitter,
                 color: Colors.white,
+                size: 25,
               ),
             ),
           ],
         ),
         SizedBox(
-          height: 3,
+          height: 10,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -198,7 +219,7 @@ class LightSocialLinks extends StatelessWidget {
                 "Powered by Paycacura System Inc.",
                 style: TextStyle(
                   fontFamily: "avenir",
-                  fontSize: 10,
+                  fontSize: 12,
                   color: Colors.white,
                 ),
               ),

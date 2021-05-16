@@ -1,8 +1,6 @@
 import 'package:arampay/common/constants.dart';
-import 'package:arampay/screens/loanBalance.dart';
 import 'package:arampay/screens/signInScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -62,95 +60,78 @@ class WelcomeScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/1000w_q95.jpg"), fit: BoxFit.fitHeight),
+              image: AssetImage("assets/look and feel3.jpg"),
+              fit: BoxFit.fitHeight),
         ),
         child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.green.withOpacity(0.2),
-                Colors.black.withOpacity(0.6)
-              ],
-              stops: [0.0, 1],
-              begin: Alignment.topCenter,
-            ),
-          ),
+          //color: Colors.green.withOpacity(0.2),
           child: Align(
             alignment: Alignment.center,
             child: Container(
-              width: 490.0,
-              margin: EdgeInsets.only(top: 350.0),
+              margin: EdgeInsets.only(top: 270.0),
               padding: EdgeInsets.all(16.0),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.black38, Colors.blueGrey.withOpacity(0)],
-                ),
-              ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   //============== logo ===============
-                  WhiteProjectLogo(),
+                  Expanded(child: WhiteProjectLogo()),
                   //============== Text writeups here ================
-                  RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(children: [
-                      TextSpan(
-                        text: "Credital\n\n",
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontFamily: "avenir",
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                      TextSpan(
-                        text: "Special military intervention \nsupport loan\n",
-                        style: Theme.of(context).textTheme.headline,
-                      ),
-                    ]),
+                  Expanded(
+                    child: Image(
+                      fit: BoxFit.contain,
+                      image: AssetImage("assets/service description4.png"),
+                      width: 170,
+                      height: 50,
+                    ),
                   ),
+                  // RichText(
+                  //   textAlign: TextAlign.center,
+                  //   text: TextSpan(
+                  //     text: "Special military intervention \nsupport loan\n",
+                  //     style: TextStyle(
+                  //       color: Colors.white,
+                  //       fontFamily: "avenir",
+                  //       fontWeight: FontWeight.bold,
+                  //       fontSize: 13,
+                  //     ),
+                  //   ),
+                  // ),
                   //=================== Get started Button here===============
-                  FittedBox(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return SigninScreen();
-                          },
-                        ));
-                      },
-                      child: Container(
-                        margin: EdgeInsets.only(bottom: 25),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          color: kPrimaryColor,
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              "Click here to start",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .button
-                                  .copyWith(color: Colors.white),
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                            ),
-                          ],
+                  Expanded(
+                    child: FittedBox(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return SigninScreen();
+                            },
+                          ));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.all(20),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 150, vertical: 20),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(40),
+                            color: Colors.orange,
+                          ),
+                          child: Text(
+                            "Get Started",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'avenir',
+                                fontSize: 30,
+                                fontWeight: FontWeight.w700),
+                          ),
                         ),
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   //=================Social media links here==============
-                  LightSocialLinks(),
+                  Expanded(child: LightSocialLinks()),
                 ],
               ),
             ),

@@ -1,9 +1,7 @@
-import 'package:arampay/api/apiService.dart';
 import 'package:arampay/common/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:arampay/screens/sideBarHomePage.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../common/ProgressHUD.dart';
 import '../models/loginModel.dart';
@@ -59,212 +57,207 @@ class _signinScreenState extends State<signinScreen> {
       key: scaffoldKey,
       backgroundColor: Colors.white,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Expanded(
-            flex: 2,
-            child: Container(
-              child: Padding(
-                padding: EdgeInsets.only(right: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    BlackProjectLogo(),
-                  ],
+          //================== Logo Here ==================
+          Container(
+            padding: EdgeInsets.only(right: 15, top: 50),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                BlackProjectLogo(),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 100,
+          ),
+          //===================== Greeting Texts ==============
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 15, bottom: 4),
+                child: Text(
+                  "Good morning",
+                  style: TextStyle(
+                    fontFamily: "avenir",
+                    fontSize: 35,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
               ),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 15, bottom: 4),
-            child: Text(
-              "Good morning",
-              style: TextStyle(
-                fontFamily: "avenir",
-                fontSize: 30,
+              Container(
+                padding: EdgeInsets.only(left: 15),
+                child: Text(
+                  "Welcome to a new day. \nHow can we help you today?",
+                  style: TextStyle(fontFamily: 'avenir', fontSize: 16),
+                ),
               ),
-            ),
+            ],
           ),
-          Container(
-            padding: EdgeInsets.only(left: 15),
-            child: Text(
-              "Welcome to a new day. \nHow can we help you today?",
-            ),
+
+          SizedBox(
+            height: 70,
           ),
+          //================ Signin Form Here ===============
           Expanded(
-            flex: 6,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+            child: SingleChildScrollView(
               child: Container(
+                padding: const EdgeInsets.only(left: 30.0, right: 30.0),
                 alignment: Alignment.center,
                 child: Form(
                   key: globalFormKey,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        TextFormField(
-                          keyboardType: TextInputType.text,
-                          onSaved: (input) =>
-                              _loginRequestModel.serviceNumber = input,
-                          validator: (input) =>
-                              input.isEmpty ? "Invalid service number" : null,
-                          decoration: InputDecoration(
-                            labelText: "Service Number",
-                            labelStyle: TextStyle(
-                              fontFamily: 'avenir',
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey,
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: kPrimaryColor)),
-                            prefixIcon: Icon(
-                              Icons.computer,
-                              color: kPrimaryColor,
-                            ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      TextFormField(
+                        keyboardType: TextInputType.text,
+                        onSaved: (input) =>
+                            _loginRequestModel.serviceNumber = input,
+                        validator: (input) =>
+                            input.isEmpty ? "Invalid service number" : null,
+                        decoration: InputDecoration(
+                          labelText: "Service Number",
+                          labelStyle: TextStyle(
+                            fontFamily: 'avenir',
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey,
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: kPrimaryColor)),
+                          prefixIcon: Icon(
+                            Icons.computer,
+                            color: kPrimaryColor,
+                            size: 35,
                           ),
                         ),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                        TextFormField(
-                          keyboardType: TextInputType.visiblePassword,
-                          onSaved: (input) =>
-                              _loginRequestModel.password = input,
-                          validator: (input) => input.length < 6
-                              ? "Password Should Be Six(6) Characters and Above"
-                              : null,
-                          decoration: InputDecoration(
-                            labelText: "Password",
-                            labelStyle: TextStyle(
-                              fontFamily: 'avenir',
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey,
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: kPrimaryColor),
-                            ),
-                            prefixIcon: Icon(Icons.lock, color: kPrimaryColor),
-                            suffixIcon: IconButton(
-                              icon: Icon(hidePassword
-                                  ? Icons.visibility_off
-                                  : Icons.visibility),
-                              onPressed: () {
-                                setState(() {
-                                  hidePassword = !hidePassword;
-                                });
-                              },
-                            ),
+                      ),
+                      SizedBox(
+                        height: 40.0,
+                      ),
+                      TextFormField(
+                        keyboardType: TextInputType.visiblePassword,
+                        onSaved: (input) => _loginRequestModel.password = input,
+                        validator: (input) => input.length < 6
+                            ? "Password Should Be Six(6) Characters and Above"
+                            : null,
+                        decoration: InputDecoration(
+                          labelText: "Password",
+                          labelStyle: TextStyle(
+                            fontFamily: 'avenir',
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey,
                           ),
-                          obscureText: hidePassword,
-                        ),
-                        SizedBox(
-                          height: 5.0,
-                        ),
-                        Container(
-                          alignment: Alignment.centerRight,
-                          padding: EdgeInsets.only(top: 5),
-                          child: InkWell(
-                            child: Text(
-                              "Forgot password?...",
-                              style: TextStyle(
-                                fontFamily: "avenir",
-                                fontSize: 12,
-                                color: kPrimaryColor,
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: kPrimaryColor),
                           ),
-                        ),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                        Container(
-                          child: GestureDetector(
-                            onTap: () {
-                              if (validateAndSave()) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text('Processing Data')));
-                                Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) {
-                                    return MainHomePage();
-                                  },
-                                ));
-                                //scaffoldKey.currentState.showSnackBar(snackBar);
-                              }
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: kPrimaryColor,
+                            size: 35,
+                          ),
+                          suffixIcon: IconButton(
+                            icon: Icon(hidePassword
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                            onPressed: () {
+                              setState(() {
+                                hidePassword = !hidePassword;
+                              });
                             },
-                            // onTap: () {
-                            //   if (validateAndSave()) {
-                            //     setState(() {
-                            //       isAPICallProcess = true;
-                            //     });
-                            //     APIService apiService = new APIService();
-                            //     apiService.login(_loginRequestModel).then((value) {
-                            //       setState(() {
-                            //         isAPICallProcess = false;
-                            //       });
-
-                            //       if (value.token.isNotEmpty) {
-                            //         final snackBar = SnackBar(
-                            //           content: Text("Account SignIn Successful!"),
-                            //         );
-                            //         //save token data to shared preference
-                            //         addObjectToSharedPreference(value);
-                            //         openMainHomepage();
-                            //         scaffoldKey.currentState.showSnackBar(snackBar);
-                            //       } else {
-                            //         final snackBar = SnackBar(
-                            //           content: Text(value.error),
-                            //         );
-                            //         scaffoldKey.currentState.showSnackBar(snackBar);
-                            //       }
-                            //     });
-                            //   }
-                            // },
-                            child: Container(
-                              margin: EdgeInsets.only(bottom: 25),
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 26, vertical: 16),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
-                                color: kPrimaryColor,
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    "Login",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .button
-                                        .copyWith(color: Colors.white),
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward,
-                                    color: Colors.white,
-                                  ),
-                                ],
-                              ),
+                          ),
+                        ),
+                        obscureText: hidePassword,
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Container(
+                        alignment: Alignment.centerRight,
+                        padding: EdgeInsets.only(top: 5),
+                        child: InkWell(
+                          child: Text(
+                            "Forgot password?...",
+                            style: TextStyle(
+                              fontFamily: "avenir",
+                              fontSize: 12,
+                              color: kPrimaryColor,
+                              decoration: TextDecoration.underline,
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        height: 40.0,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          if (validateAndSave()) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('Processing Data')));
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return MainHomePage();
+                              },
+                            ));
+                            //scaffoldKey.currentState.showSnackBar(snackBar);
+                          }
+                        },
+                        // onTap: () {
+                        //   if (validateAndSave()) {
+                        //     setState(() {
+                        //       isAPICallProcess = true;
+                        //     });
+                        //     APIService apiService = new APIService();
+                        //     apiService.login(_loginRequestModel).then((value) {
+                        //       setState(() {
+                        //         isAPICallProcess = false;
+                        //       });
+
+                        //       if (value.token.isNotEmpty) {
+                        //         final snackBar = SnackBar(
+                        //           content: Text("Account SignIn Successful!"),
+                        //         );
+                        /**save token data to shared preference*/
+                        //         addObjectToSharedPreference(value);
+                        //         openMainHomepage();
+                        //         scaffoldKey.currentState.showSnackBar(snackBar);
+                        //       } else {
+                        //         final snackBar = SnackBar(
+                        //           content: Text(value.error),
+                        //         );
+                        //         scaffoldKey.currentState.showSnackBar(snackBar);
+                        //       }
+                        //     });
+                        //   }
+                        // },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 120, vertical: 20),
+                          decoration: BoxDecoration(
+                            color: Colors.orange,
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Text(
+                            "Login",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
-          ),
-
-          //====================Social link Here =========================
-          Expanded(
-            flex: 1,
-            child: SocialLinks(),
           ),
         ],
       ),

@@ -93,77 +93,80 @@ class _LoanBalanceState extends State<LoanBalance> {
             Expanded(
               flex: 2,
               child: Container(
-                margin: EdgeInsets.all(20),
+                margin: EdgeInsets.only(bottom: 25, left: 30, right: 30),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: kPrimaryColor,
                 ),
-                width: 300,
-                height: 100,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Stack(
-                      children: [
-                        SizedBox(
-                          width: 60,
-                          height: 60,
-                          //============ Percentage widget just edith the value/100==========
-                          child: CircularProgressIndicator(
-                            //----value input / 100 -----
-                            value: 30 / 100,
-                            strokeWidth: 6,
-                            backgroundColor: Colors.white,
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(Colors.blueGrey),
-                          ),
-                        ),
-                        Container(
-                          width: 60,
-                          height: 60,
-                          alignment: Alignment.center,
-                          child: Text(
-                            //------ input value here toplease convert toString()------
-                            "30" + "%",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "avenir",
-                              fontSize: 20,
+                child: Material(
+                  color: Colors.white,
+                  elevation: 14.0,
+                  borderRadius: BorderRadius.circular(15.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Stack(
+                        children: [
+                          SizedBox(
+                            width: 60,
+                            height: 60,
+                            //============ Percentage widget just edith the value/100==========
+                            child: CircularProgressIndicator(
+                              //----value input / 100 -----
+                              value: 30 / 100,
+                              strokeWidth: 6,
+                              backgroundColor: kButtonColor,
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                  Colors.blueGrey),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 30,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "₦50,000",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 30,
-                            fontWeight: FontWeight.w700,
+                          Container(
+                            width: 60,
+                            height: 60,
+                            alignment: Alignment.center,
+                            child: Text(
+                              //------ input value here toplease convert toString()------
+                              "30" + "%",
+                              style: TextStyle(
+                                color: kButtonColor,
+                                fontFamily: "avenir",
+                                fontSize: 20,
+                              ),
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Balance",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w700,
+                        ],
+                      ),
+                      SizedBox(
+                        width: 30,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "₦50,000",
+                            style: TextStyle(
+                              color: kButtonColor,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Balance",
+                            style: TextStyle(
+                              color: kButtonColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -179,26 +182,24 @@ class _LoanBalanceState extends State<LoanBalance> {
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 16),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: kPrimaryColor,
+                    color: Colors.white,
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "My Loan",
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            .copyWith(color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
-                      ),
-                    ],
+                  child: Material(
+                    color: kButtonColor,
+                    elevation: 14.0,
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Loan Request",
+                          style: Theme.of(context)
+                              .textTheme
+                              .button
+                              .copyWith(color: Colors.white),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -215,26 +216,24 @@ class _LoanBalanceState extends State<LoanBalance> {
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 16),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: kPrimaryColor,
+                    color: Colors.white,
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "Loan Statement",
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            .copyWith(color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
-                      ),
-                    ],
+                  child: Material(
+                    color: kButtonColor,
+                    elevation: 14.0,
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Loan Statement",
+                          style: Theme.of(context)
+                              .textTheme
+                              .button
+                              .copyWith(color: Colors.white),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
