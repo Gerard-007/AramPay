@@ -1,7 +1,7 @@
 import 'package:arampay/common/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:arampay/screens/sideBarHomePage.dart';
+import 'package:arampay/screens/sideBarScreen.dart';
 
 import '../common/ProgressHUD.dart';
 import '../models/loginModel.dart';

@@ -1,10 +1,10 @@
 import 'package:arampay/common/constants.dart';
-import 'package:arampay/screens/profile.dart';
-import 'package:arampay/screens/settings.dart';
+import 'package:arampay/screens/profileScreen.dart';
+import 'package:arampay/screens/settingsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import 'home.dart';
+import 'homeScreen.dart';
 
 class MainHomePage extends StatelessWidget {
   // SystemChrome.setEnabledSystemUIOverlays([]),

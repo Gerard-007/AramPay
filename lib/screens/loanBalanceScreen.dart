@@ -1,9 +1,9 @@
 import 'package:arampay/common/constants.dart';
-import 'package:arampay/screens/sideBarHomePage.dart';
+import 'package:arampay/screens/sideBarScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'home.dart';
+import 'homeScreen.dart';
 
 class LoanBalacePage extends StatelessWidget {
   @override

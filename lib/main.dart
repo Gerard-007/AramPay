@@ -1,10 +1,11 @@
 import 'package:arampay/common/constants.dart';
+import 'package:arampay/screens/loadingScreen.dart';
 import 'package:arampay/screens/signInScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
-  //runApp(LoanBalacePage());
+  //runApp(MyApp());
+  runApp(LoadingScreen());
 }
 
 class MyApp extends StatelessWidget {
