@@ -1,11 +1,10 @@
 import 'package:arampay/common/constants.dart';
-import 'package:arampay/screens/loadingScreen.dart';
 import 'package:arampay/screens/signInScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  //runApp(MyApp());
-  runApp(LoadingScreen());
+  runApp(MyApp());
+  //runApp(PendingFeaturePage());
 }
 
 class MyApp extends StatelessWidget {
@@ -61,8 +60,9 @@ class WelcomeScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/look and feel3.jpg"),
-              fit: BoxFit.fitHeight),
+            image: AssetImage("assets/homepage.jpg"),
+            fit: BoxFit.fitHeight,
+          ),
         ),
         child: Container(
           //color: Colors.green.withOpacity(0.2),
@@ -114,7 +114,7 @@ class WelcomeScreen extends StatelessWidget {
                               horizontal: 150, vertical: 20),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(40),
-                            color: Colors.orange,
+                            color: kButtonColor,
                           ),
                           child: Text(
                             "Get Started",

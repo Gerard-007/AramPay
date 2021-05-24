@@ -165,6 +165,11 @@ class _mainHomepageState extends State<mainHomepage> {
                                 ),
                               ),
                             ),
+                            SizedBox(
+                              width: 200,
+                            ),
+                            //Logo goes here
+                            BlackProjectLogo(),
                           ],
                         ),
                       ),

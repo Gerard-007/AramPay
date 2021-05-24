@@ -1,4 +1,5 @@
 import 'package:arampay/common/constants.dart';
+import 'package:arampay/screens/pendingFeaturesPage.dart';
 import 'package:flutter/material.dart';
 
 import 'loanBalanceScreen.dart';
@@ -103,6 +104,14 @@ class _HomePageState extends State<HomePage> {
                 child: GestureDetector(
                   onTap: () {
                     //======== Routing goes here ========
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return PendingFeaturePage();
+                        },
+                      ),
+                    );
                   },
                   child: Container(
                     child: FittedBox(
@@ -171,6 +180,14 @@ class _HomePageState extends State<HomePage> {
                 child: GestureDetector(
                   onTap: () {
                     //======== Routing goes here ========
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return PendingFeaturePage();
+                        },
+                      ),
+                    );
                   },
                   child: Container(
                     child: FittedBox(
@@ -238,7 +255,15 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.all(20.0),
                 child: GestureDetector(
                   onTap: () {
-                    //======= Routing goes here ======
+                    //======== Routing goes here ========
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return PendingFeaturePage();
+                        },
+                      ),
+                    );
                   },
                   child: Container(
                     child: FittedBox(

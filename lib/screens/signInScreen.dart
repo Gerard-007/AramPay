@@ -64,12 +64,7 @@ class _signinScreenState extends State<signinScreen> {
           //================== Logo Here ==================
           Container(
             padding: EdgeInsets.only(right: 15, top: 50),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                BlackProjectLogo(),
-              ],
-            ),
+            child: BlackProjectLogo(),
           ),
           SizedBox(
             height: 100,
@@ -137,7 +132,7 @@ class _signinScreenState extends State<signinScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 40.0,
+                        height: 60.0,
                       ),
                       TextFormField(
                         keyboardType: TextInputType.visiblePassword,
@@ -239,7 +234,7 @@ class _signinScreenState extends State<signinScreen> {
                           padding: EdgeInsets.symmetric(
                               horizontal: 120, vertical: 20),
                           decoration: BoxDecoration(
-                            color: Colors.orange,
+                            color: kButtonColor,
                             borderRadius: BorderRadius.circular(30),
                           ),
                           child: Text(
