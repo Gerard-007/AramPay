@@ -20,16 +20,6 @@ class BlackProjectLogo extends StatelessWidget {
           width: 40,
           height: 40,
         ),
-        SizedBox(
-          width: 5,
-        ),
-        Text(
-          "Arampay",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
-          ),
-        )
       ],
     );
   }

@@ -56,7 +56,7 @@ class _mainHomepageState extends State<mainHomepage> {
   void setPageTitle() {
     switch (selectedMenuItem) {
       case 0:
-        pageTitle = "Homepage";
+        pageTitle = "Home";
         break;
       case 1:
         pageTitle = "Profile";
@@ -138,9 +138,10 @@ class _mainHomepageState extends State<mainHomepage> {
                   child: Column(
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.only(top: 20),
+                        margin: EdgeInsets.only(top: 40),
                         height: 60,
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             GestureDetector(
                               onTap: () {
@@ -165,11 +166,11 @@ class _mainHomepageState extends State<mainHomepage> {
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              width: 200,
-                            ),
                             //Logo goes here
-                            BlackProjectLogo(),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 15),
+                              child: BlackProjectLogo(),
+                            ),
                           ],
                         ),
                       ),
