@@ -36,6 +36,7 @@ class WhiteProjectLogo extends StatelessWidget {
             image: AssetImage("assets/main logo1.png"),
             width: 70,
             height: 80,
+            color: kButtonColor,
           ),
           SizedBox(
             width: 5,

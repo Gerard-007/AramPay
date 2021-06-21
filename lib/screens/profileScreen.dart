@@ -81,7 +81,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 child: Material(
                   color: Colors.white,
-                  elevation: 15.0,
+                  elevation: 10.0,
                   borderRadius: BorderRadius.circular(15.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -107,7 +107,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 height: 30,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.40,
+                height: MediaQuery.of(context).size.height * 0.38,
                 width: MediaQuery.of(context).size.width * 0.9,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
@@ -115,7 +115,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 child: Material(
                   color: Colors.white,
-                  elevation: 15.0,
+                  elevation: 10.0,
                   borderRadius: BorderRadius.circular(15.0),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -140,15 +140,16 @@ class _ProfilePageState extends State<ProfilePage> {
                           height: 10,
                         ),
                         Expanded(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Container(
+                          child: Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () {},
+                                child: Container(
                                   height:
-                                      MediaQuery.of(context).size.height * 0.08,
+                                      MediaQuery.of(context).size.height * 0.07,
                                   decoration: BoxDecoration(
                                     color: kButtonColor,
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(40),
                                   ),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -177,15 +178,18 @@ class _ProfilePageState extends State<ProfilePage> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 30,
-                                ),
-                                Container(
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              GestureDetector(
+                                onTap: () {},
+                                child: Container(
                                   height:
-                                      MediaQuery.of(context).size.height * 0.08,
+                                      MediaQuery.of(context).size.height * 0.07,
                                   decoration: BoxDecoration(
                                     color: kButtonColor,
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(40),
                                   ),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -214,15 +218,18 @@ class _ProfilePageState extends State<ProfilePage> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 30,
-                                ),
-                                Container(
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              GestureDetector(
+                                onTap: () {},
+                                child: Container(
                                   height:
-                                      MediaQuery.of(context).size.height * 0.08,
+                                      MediaQuery.of(context).size.height * 0.07,
                                   decoration: BoxDecoration(
                                     color: kButtonColor,
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(40),
                                   ),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -252,12 +259,12 @@ class _ProfilePageState extends State<ProfilePage> {
                                     ],
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                       ],
                     ),

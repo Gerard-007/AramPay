@@ -91,17 +91,16 @@ class _LoanBalanceState extends State<LoanBalance> {
 
             //================ Balance Display Widget ===============
             Expanded(
-              flex: 2,
+              flex: 3,
               child: Container(
-                margin: EdgeInsets.only(bottom: 25, left: 30, right: 30),
+                margin: EdgeInsets.only(bottom: 50),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
                   color: kPrimaryColor,
                 ),
                 child: Material(
-                  color: Colors.white,
-                  elevation: 14.0,
-                  borderRadius: BorderRadius.circular(15.0),
+                  color: kButtonColor,
+                  //elevation: 14.0,
+                  //borderRadius: BorderRadius.circular(15.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -109,27 +108,27 @@ class _LoanBalanceState extends State<LoanBalance> {
                       Stack(
                         children: [
                           SizedBox(
-                            width: 60,
-                            height: 60,
+                            width: 80,
+                            height: 80,
                             //============ Percentage widget just edith the value/100==========
                             child: CircularProgressIndicator(
                               //----value input / 100 -----
                               value: 30 / 100,
                               strokeWidth: 6,
-                              backgroundColor: kButtonColor,
+                              backgroundColor: Colors.white,
                               valueColor: AlwaysStoppedAnimation<Color>(
                                   Colors.blueGrey),
                             ),
                           ),
                           Container(
-                            width: 60,
-                            height: 60,
+                            width: 80,
+                            height: 80,
                             alignment: Alignment.center,
                             child: Text(
                               //------ input value here toplease convert toString()------
                               "30" + "%",
                               style: TextStyle(
-                                color: kButtonColor,
+                                color: Colors.white,
                                 fontFamily: "avenir",
                                 fontSize: 20,
                               ),
@@ -147,18 +146,18 @@ class _LoanBalanceState extends State<LoanBalance> {
                           Text(
                             "₦50,000",
                             style: TextStyle(
-                              color: kButtonColor,
-                              fontSize: 30,
+                              color: Colors.white,
+                              fontSize: 40,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 20,
                           ),
                           Text(
                             "Balance",
                             style: TextStyle(
-                              color: kButtonColor,
+                              color: Colors.white,
                               fontSize: 15,
                               fontWeight: FontWeight.w700,
                             ),
@@ -178,21 +177,55 @@ class _LoanBalanceState extends State<LoanBalance> {
                 //=== Routes to Loan application button link ===
                 onTap: () {},
                 child: Container(
-                  margin: EdgeInsets.only(bottom: 25, left: 30, right: 30),
+                  margin: EdgeInsets.only(bottom: 10, left: 30, right: 30),
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 16),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(40),
                     color: Colors.white,
                   ),
                   child: Material(
                     color: kButtonColor,
-                    elevation: 14.0,
-                    borderRadius: BorderRadius.circular(20.0),
+                    //elevation: 14.0,
+                    borderRadius: BorderRadius.circular(45.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          "Loan Request",
+                          "Apply For Loan",
+                          style: Theme.of(context)
+                              .textTheme
+                              .button
+                              .copyWith(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            //===========Loan App;ication Button Link ===============
+            Expanded(
+              flex: 1,
+              child: GestureDetector(
+                //=== Routes to Loan application button link ===
+                onTap: () {},
+                child: Container(
+                  margin: EdgeInsets.only(bottom: 10, left: 30, right: 30),
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40),
+                    color: Colors.white,
+                  ),
+                  child: Material(
+                    color: kButtonColor,
+                    //elevation: 14.0,
+                    borderRadius: BorderRadius.circular(50.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Apply For Loan",
                           style: Theme.of(context)
                               .textTheme
                               .button
@@ -212,21 +245,21 @@ class _LoanBalanceState extends State<LoanBalance> {
                 //=== Routes to Loan application button link ===
                 onTap: () {},
                 child: Container(
-                  margin: EdgeInsets.only(bottom: 25, left: 30, right: 30),
+                  margin: EdgeInsets.only(bottom: 10, left: 30, right: 30),
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 16),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(40),
                     color: Colors.white,
                   ),
                   child: Material(
                     color: kButtonColor,
-                    elevation: 14.0,
-                    borderRadius: BorderRadius.circular(20.0),
+                    //elevation: 14.0,
+                    borderRadius: BorderRadius.circular(45.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          "Loan Statement",
+                          "My Loan Statement",
                           style: Theme.of(context)
                               .textTheme
                               .button
