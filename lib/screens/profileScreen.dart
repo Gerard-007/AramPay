@@ -15,7 +15,7 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Column(
             children: [
               SizedBox(
-                height: 50,
+                height: 30,
               ),
               // User Name & service number display
               Container(
@@ -107,7 +107,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 height: 30,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.38,
+                height: MediaQuery.of(context).size.height * 0.39,
                 width: MediaQuery.of(context).size.width * 0.9,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
@@ -262,9 +262,6 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                             ],
                           ),
-                        ),
-                        SizedBox(
-                          height: 10,
                         ),
                       ],
                     ),
