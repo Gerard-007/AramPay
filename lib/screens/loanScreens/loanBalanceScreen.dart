@@ -1,9 +1,9 @@
 import 'package:arampay/common/constants.dart';
-import 'package:arampay/screens/sideBarScreen.dart';
+import 'package:arampay/screens/homeScreens/sideBarScreen.dart';
+import 'package:arampay/screens/loanScreens/loanApplicationScreen.dart';
+import 'package:arampay/screens/loanScreens/recentLoanScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'homeScreen.dart';
 
 class LoanBalacePage extends StatelessWidget {
   @override
@@ -31,7 +31,7 @@ class _LoanBalanceState extends State<LoanBalance> {
             //mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 40, right: 30),
+                padding: const EdgeInsets.only(top: 30, right: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -56,7 +56,7 @@ class _LoanBalanceState extends State<LoanBalance> {
                 height: 30,
               ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 20),
+                margin: EdgeInsets.symmetric(vertical: 10),
                 child: RichText(
                   textAlign: TextAlign.left,
                   text: TextSpan(
@@ -87,7 +87,7 @@ class _LoanBalanceState extends State<LoanBalance> {
                 height: 20,
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 80),
+                padding: EdgeInsets.symmetric(vertical: 50),
                 decoration: BoxDecoration(
                   color: kButtonColor,
                 ),
@@ -98,12 +98,15 @@ class _LoanBalanceState extends State<LoanBalance> {
                     Stack(
                       children: [
                         SizedBox(
-                          width: 80,
-                          height: 80,
+                          width: 100,
+                          height: 100,
                           //============ Percentage widget just edith the value/100==========
                           child: CircularProgressIndicator(
                             //----value input / 100 -----
-                            value: 30 / 100,
+                            //(actual / available) * 100 = percent // start
+
+                            value: ((totalAppliedLoan / totalTreshold) * 100) /
+                                100,
                             strokeWidth: 6,
                             backgroundColor: Colors.white,
                             valueColor:
@@ -111,12 +114,13 @@ class _LoanBalanceState extends State<LoanBalance> {
                           ),
                         ),
                         Container(
-                          width: 80,
-                          height: 80,
+                          width: 100,
+                          height: 100,
                           alignment: Alignment.center,
                           child: Text(
                             //------ input value here toplease convert toString()------
-                            "30" + "%",
+                            "${((totalAppliedLoan / totalTreshold) * 100).ceil()}%",
+
                             style: TextStyle(
                               color: Colors.white,
                               fontFamily: "avenir",
@@ -134,7 +138,7 @@ class _LoanBalanceState extends State<LoanBalance> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          "₦50,000",
+                          "₦$loanBalance",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 40,
@@ -158,14 +162,24 @@ class _LoanBalanceState extends State<LoanBalance> {
                 ),
               ),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               GestureDetector(
                 //=== Routes to Loan application button link ===
-                onTap: () {},
+                onTap: () {
+                  //======== Routing goes here ========
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return LoanApplicationPage();
+                      },
+                    ),
+                  );
+                },
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 30),
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     color: kButtonColor,
@@ -186,10 +200,20 @@ class _LoanBalanceState extends State<LoanBalance> {
               ),
               GestureDetector(
                 //=== Routes to Loan application button link ===
-                onTap: () {},
+                onTap: () {
+                  //======== Routing goes here ========
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return RecentLoanScreen();
+                      },
+                    ),
+                  );
+                },
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 30),
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     color: kButtonColor,
@@ -213,7 +237,7 @@ class _LoanBalanceState extends State<LoanBalance> {
                 onTap: () {},
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 30),
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     color: kButtonColor,
@@ -261,6 +285,9 @@ class _LoanBalanceState extends State<LoanBalance> {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              )
             ],
           ),
         ),

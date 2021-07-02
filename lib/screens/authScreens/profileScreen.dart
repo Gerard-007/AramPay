@@ -1,5 +1,9 @@
+import 'package:arampay/api/apiService.dart';
 import 'package:arampay/common/constants.dart';
+import 'package:arampay/models/borrowerData.dart';
+import 'package:arampay/models/user.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -7,6 +11,29 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  bool circular = true;
+  APIService _apiService = APIService();
+  User _user = User();
+  BorrowerData _borrowerData = BorrowerData();
+
+  @override
+  void initState() {
+    // ignore: todo
+    // TODO: implement initState
+    super.initState();
+    fetchBorrowerData();
+  }
+
+  void fetchBorrowerData() async {
+    var responseData = await _apiService.get('/api/borrower/details/retrieve/');
+    var response = await _apiService.get('/api/accounts/retrieve/');
+    setState(() {
+      _borrowerData = BorrowerData.fromJson(responseData['data'][0]);
+      _user = User.fromJson(response['data'][0]);
+      circular = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -44,22 +71,22 @@ class _ProfilePageState extends State<ProfilePage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Gerard Nwazk",
+                            "${_user.name}",
                             style:
                                 TextStyle(fontFamily: 'avenir', fontSize: 25),
                           ),
                           Text(
-                            "SN08186612324",
+                            "BVN: ${_borrowerData.bvn}",
                             style:
                                 TextStyle(fontFamily: 'avenir', fontSize: 20),
                           ),
                           Text(
-                            "Male",
+                            "${_user.gender}",
                             style:
                                 TextStyle(fontFamily: 'avenir', fontSize: 15),
                           ),
                           Text(
-                            "Age 30",
+                            "${_borrowerData.age}",
                             style:
                                 TextStyle(fontFamily: 'avenir', fontSize: 15),
                           ),
@@ -87,17 +114,18 @@ class _ProfilePageState extends State<ProfilePage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Loans: 3",
+                      Text("Country: ${_borrowerData.country}",
                           style: TextStyle(fontFamily: 'avenir', fontSize: 20)),
                       SizedBox(
                         height: 20,
                       ),
-                      Text("Pending: 3",
+                      Text(
+                          "Status: ${_borrowerData.workingStatus == 'Employed' ? 'Active Duty' : 'Not Active'}",
                           style: TextStyle(fontFamily: 'avenir', fontSize: 20)),
                       SizedBox(
                         height: 20,
                       ),
-                      Text("Canceled: 0",
+                      Text("NIN: ${_borrowerData.nin}",
                           style: TextStyle(fontFamily: 'avenir', fontSize: 20)),
                     ],
                   ),
@@ -168,7 +196,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         width: 80,
                                       ),
                                       Text(
-                                        "24 Feb 2021",
+                                        currentTime(),
                                         style: TextStyle(
                                             fontFamily: "avenir",
                                             fontSize: 20,
@@ -208,7 +236,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         width: 80,
                                       ),
                                       Text(
-                                        "24 Feb 2021",
+                                        currentTime(),
                                         style: TextStyle(
                                             fontFamily: "avenir",
                                             fontSize: 20,
@@ -248,13 +276,12 @@ class _ProfilePageState extends State<ProfilePage> {
                                         width: 80,
                                       ),
                                       Text(
-                                        "24 Feb 2021",
+                                        currentTime(),
                                         style: TextStyle(
-                                          fontFamily: "avenir",
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w700,
-                                          color: Colors.white,
-                                        ),
+                                            fontFamily: "avenir",
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700,
+                                            color: Colors.white),
                                       ),
                                     ],
                                   ),
@@ -274,4 +301,11 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
     );
   }
+}
+
+String currentTime() {
+  final DateTime now = DateTime.now();
+  final DateFormat formatter = DateFormat('dd-MM-yyyy');
+  final String formatted = formatter.format(now);
+  return formatted;
 }

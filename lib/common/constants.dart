@@ -1,4 +1,6 @@
+import 'package:date_util/date_util.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 //const kBackgroundColor = Color(0xFF202020);
@@ -6,6 +8,10 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 const kLayoutColor = Color(0xFF01579B);
 const kPrimaryColor = Color(0xFF827717);
 const kButtonColor = Color.fromRGBO(255, 109, 0, 1);
+int totalTreshold = 50000;
+int loanBalance = 50000;
+int recentAppliedLoan = 0;
+int totalAppliedLoan = 0;
 
 //Project logo custom widget...
 class BlackProjectLogo extends StatelessWidget {
@@ -302,3 +308,47 @@ class SearchContainer extends StatelessWidget {
     );
   }
 }
+
+// Get The time...
+String getTime() {
+  var now = DateTime.now().hour;
+  print("Now $now");
+  if (now >= 1 && now < 11) {
+    return "Good Morning";
+  } else if (now >= 12 && now < 16) {
+    return "Good Afternoon";
+  } else if (now > 17 && now < 23) {
+    return "Good Evening";
+  } else {
+    return "Good Day";
+  }
+}
+
+// Get Date
+String getTodaysDate() {
+  var dt = DateTime.now();
+  var newDt = DateFormat.yMMMEd().format(dt);
+  return newDt;
+}
+
+String getRepaymentDate() {
+  var dateUtility = DateUtil();
+  var getTodaysDate = int.parse(DateTime.now().day.toStringAsFixed(0));
+  var numOfDays =
+      dateUtility.daysInMonth(DateTime.now().month, DateTime.now().year);
+  var daysDifference = numOfDays - getTodaysDate;
+  print(daysDifference);
+  var repaymentDate = DateTime.now().add(Duration(days: daysDifference));
+  return DateFormat.yMMMEd().format(repaymentDate);
+}
+
+//==========Loan Transaction & Balance Logic==========
+
+// String loanTransaction(lendingAmount) {
+//   if (loanBalance < int.parse(lendingAmount)) {
+//     return "Your request N$lendingAmount is higher than you allocated N$loanBalance balance";
+//   } else {
+//     loanBalance -= int.parse(lendingAmount);
+//     return "Your loan request of N$lendingAmount was successful";
+//   }
+// }

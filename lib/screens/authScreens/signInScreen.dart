@@ -1,10 +1,12 @@
+import 'package:arampay/api/apiService.dart';
 import 'package:arampay/common/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:arampay/screens/sideBarScreen.dart';
+import 'package:arampay/screens/homeScreens/sideBarScreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import '../common/ProgressHUD.dart';
-import '../models/loginModel.dart';
+import '../../common/ProgressHUD.dart';
+import '../../models/loginModel.dart';
 
 class SigninScreen extends StatelessWidget {
   @override
@@ -29,6 +31,7 @@ class signinScreen extends StatefulWidget {
 class _signinScreenState extends State<signinScreen> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   GlobalKey<FormState> globalFormKey = new GlobalKey<FormState>();
+  TextEditingController serviceNumberController = new TextEditingController();
   bool hidePassword = true;
   bool isAPICallProcess = false;
   LoginRequestModel _loginRequestModel;
@@ -77,7 +80,7 @@ class _signinScreenState extends State<signinScreen> {
               Container(
                 padding: EdgeInsets.only(left: 15, bottom: 4),
                 child: Text(
-                  "Good morning",
+                  "${getTime()}",
                   style: TextStyle(
                     fontFamily: "avenir",
                     fontSize: 35,
@@ -110,7 +113,8 @@ class _signinScreenState extends State<signinScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       TextFormField(
-                        keyboardType: TextInputType.text,
+                        keyboardType: TextInputType.number,
+                        controller: serviceNumberController,
                         onSaved: (input) =>
                             _loginRequestModel.serviceNumber = input,
                         validator: (input) =>
@@ -192,13 +196,44 @@ class _signinScreenState extends State<signinScreen> {
                       GestureDetector(
                         onTap: () {
                           if (validateAndSave()) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Processing Data')));
-                            Navigator.push(context, MaterialPageRoute(
-                              builder: (context) {
-                                return MainHomePage();
-                              },
-                            ));
+                            print({
+                              'email': 'minloansnigeria@gmail.com',
+                              'password': 'pass=123'
+                            });
+                            setState(() {
+                              isAPICallProcess = true;
+                            });
+                            APIService apiService = new APIService();
+                            apiService.post('/api/accounts/', {
+                              'email': 'minloansnigeria@gmail.com',
+                              'password': 'pass=123'
+                            }).then((value) {
+                              setState(() {
+                                isAPICallProcess = false;
+                              });
+
+                              if (value != null) {
+                                final snackBar = SnackBar(
+                                  content: Text("Account SignIn Successful!"),
+                                );
+                                /**save token data to shared preference*/
+                                //addObjectToSharedPreference(value);
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return MainHomePage();
+                                  },
+                                ));
+                                scaffoldKey.currentState.showSnackBar(snackBar);
+                              } else {
+                                final snackBar = SnackBar(
+                                  content: Text('Error During SignIn'),
+                                );
+                                scaffoldKey.currentState.showSnackBar(snackBar);
+                              }
+                            });
+                            // ScaffoldMessenger.of(context).showSnackBar(
+                            //     SnackBar(content: Text('Processing Data')));
+
                             //scaffoldKey.currentState.showSnackBar(snackBar);
                           }
                         },
@@ -268,10 +303,10 @@ class _signinScreenState extends State<signinScreen> {
     return false;
   }
 
-  // addObjectToSharedPreference(value) async {
-  //   SharedPreferences preferences = await SharedPreferences.getInstance();
-  //   preferences.setString('token', value.token);
-  // }
+  addObjectToSharedPreference(value) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.setString('token', value.token);
+  }
 
   // void openMainHomepage() {
   //   Navigator.pushNamed(context, '/mainHomepage');

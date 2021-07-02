@@ -1,7 +1,7 @@
 import 'package:arampay/common/constants.dart';
 import 'package:flutter/material.dart';
 
-import 'sideBarScreen.dart';
+import '../homeScreens/sideBarScreen.dart';
 
 class PendingFeaturePage extends StatelessWidget {
   @override

@@ -1,7 +1,7 @@
-import 'package:arampay/common/graphCardWidget.dart';
+import 'package:arampay/common/constants.dart';
+import 'package:arampay/screens/loanScreens/loanBalanceScreen.dart';
 import 'package:bezier_chart/bezier_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class RecentLoanScreen extends StatelessWidget {
   @override
@@ -46,10 +46,23 @@ class _recentLoanScreenState extends State<recentLoanScreen> {
                 children: [
                   Row(
                     children: [
-                      Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.white,
-                        size: 30,
+                      GestureDetector(
+                        onTap: () {
+                          //======== Routing goes here ========
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return LoanBalacePage();
+                              },
+                            ),
+                          );
+                        },
+                        child: Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.white,
+                          size: 30,
+                        ),
                       ),
                     ],
                   ),
@@ -76,7 +89,7 @@ class _recentLoanScreenState extends State<recentLoanScreen> {
                     height: 20,
                   ),
                   Text(
-                    "₦50,000.00",
+                    "₦$loanBalance",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 40,
@@ -194,7 +207,7 @@ class _recentLoanScreenState extends State<recentLoanScreen> {
                   //   ],
                   // ),
                   SizedBox(
-                    height: 30,
+                    height: 25,
                   ),
                   Text(
                     "Loan Analysis",
@@ -206,13 +219,13 @@ class _recentLoanScreenState extends State<recentLoanScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 25,
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.15,
+                    height: MediaQuery.of(context).size.height * 0.20,
                     width: MediaQuery.of(context).size.width * 0.9,
                     decoration: BoxDecoration(
-                      color: Colors.orange,
+                      color: kButtonColor,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Padding(
@@ -223,7 +236,7 @@ class _recentLoanScreenState extends State<recentLoanScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
-                            "Loan Amount : ₦50,000.00",
+                            "Recent Loan Amount : ₦${recentAppliedLoan}.00",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -231,7 +244,7 @@ class _recentLoanScreenState extends State<recentLoanScreen> {
                             ),
                           ),
                           Text(
-                            "Loan Period : 15 days",
+                            "Total collected : ${totalAppliedLoan}",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -239,7 +252,23 @@ class _recentLoanScreenState extends State<recentLoanScreen> {
                             ),
                           ),
                           Text(
-                            "Due Date : 18-Nov-2021",
+                            "Loan Period : 30 days",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
+                            "Applied Date : ${getTodaysDate()}",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
+                            "Due Date : ${getRepaymentDate()}",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,

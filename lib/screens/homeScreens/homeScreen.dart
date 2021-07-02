@@ -1,8 +1,8 @@
 import 'package:arampay/common/constants.dart';
-import 'package:arampay/screens/pendingFeaturesPage.dart';
+import 'package:arampay/screens/loadingScreen/pendingFeaturesPage.dart';
 import 'package:flutter/material.dart';
 
-import 'loanBalanceScreen.dart';
+import '../loanScreens/loanBalanceScreen.dart';
 
 class HomePage extends StatefulWidget {
   @override

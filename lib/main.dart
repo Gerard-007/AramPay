@@ -1,5 +1,5 @@
 import 'package:arampay/common/constants.dart';
-import 'package:arampay/screens/signInScreen.dart';
+import 'package:arampay/screens/authScreens/signInScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -142,3 +142,4 @@ class WelcomeScreen extends StatelessWidget {
     );
   }
 }
+// something like 2013-04-20

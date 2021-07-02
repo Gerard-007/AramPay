@@ -1,6 +1,6 @@
 import 'package:arampay/common/constants.dart';
-import 'package:arampay/screens/profileScreen.dart';
-import 'package:arampay/screens/settingsScreen.dart';
+import 'package:arampay/screens/authScreens/profileScreen.dart';
+import 'package:arampay/screens/homeScreens/settingsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 

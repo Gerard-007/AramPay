@@ -1,5 +1,4 @@
 import 'package:arampay/common/constants.dart';
-import 'package:arampay/screens/signInScreen.dart';
 import 'package:flutter/material.dart';
 
 class LoadingScreen2 extends StatelessWidget {
